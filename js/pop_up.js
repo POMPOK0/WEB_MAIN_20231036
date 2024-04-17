@@ -3,7 +3,8 @@ function pop_up()
     window.open("C:/Users/eden2/Documents/학교/자바/WEB_MAIN_20231036/popup/popup.html", "팝업테스트", "width=400, height=300, top=10, left=10");
 }
 
-function show_clock(){
+function show_clock()
+{
     let currentDate = new Date(); // 현재 시스템 날짜 객체 생성
     let divClock = document.getElementById('divClock');
     let msg = "현재 시간 : ";
@@ -22,4 +23,4 @@ function show_clock(){
     divClock.style.color="red";
     }
     setTimeout(show_clock, 1000); //1초마다 갱신
-    }
+}

@@ -1,3 +1,31 @@
+function setCookie(name, value, expiredays) 
+{
+    var date = new Date();
+    date.setDate(date.getDate() + expiredays);
+    document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString() + "; path=/";
+}
+    
+
+function getCookie(name) 
+{
+    var cookie = document.cookie;
+    console.log("쿠키를 요청합니다.");
+    if (cookie != "") 
+    {
+        var cookie_array = cookie.split("; ");
+        for ( var index in cookie_array) 
+        {
+            var cookie_name = cookie_array[index].split("=");
+            if (cookie_name[0] == "popupYN") 
+            {
+                return cookie_name[1];
+            }
+        }
+    }
+    return ;
+}
+    
+
 const check_xss = (input) => 
     {
         // DOMPurify 라이브러리 로드 (CDN 사용)
@@ -24,6 +52,7 @@ const check_input = () =>
     const loginBtn = document.getElementById('login_btn');
     const emailInput = document.getElementById('typeEmailX');
     const passwordInput = document.getElementById('typePasswordX');
+    const idsave_check = document.getElementById('idSaveCheck');
 
     const c = '아이디, 패스워드를 체크합니다';
     alert(c);
@@ -75,6 +104,18 @@ const check_input = () =>
         alert('패스워드는 대소문자를 1개 이상 포함해야 합니다.');
         return false;
     }
+
+    if(idsave_check.checked == true) // 아이디 체크 o
+    {
+        alert("쿠키를 저장합니다.", emailValue);
+        setCookie("id", emailValue, 1); // 1일 저장
+        alert("쿠키 값 :" + emailValue);
+    }
+    else// 아이디 체크 x
+    { 
+        setCookie("id", emailValue.value, 0); //날짜를 0 - 쿠키 삭제
+    }
+
     const sanitizedPassword =
     check_xss(passwordValue);
     // check_xss 함수로 비밀번호 Sanitize
@@ -91,15 +132,16 @@ const check_input = () =>
     return false;
     }
 
+
+        
+
     console.log('이메일:', emailValue);
     console.log('비밀번호:', passwordValue);
     loginForm.submit();
+
 
     
 
 };
 
     document.getElementById("login_btn").addEventListener('click', check_input);
-
-    
-        

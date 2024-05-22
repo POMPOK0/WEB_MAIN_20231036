@@ -16,6 +16,7 @@
         <script src="js/data_type.js" defer></script>
         <script src="js/login.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.0/purify.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="../css/login.css">
         <style>
             table 
@@ -25,7 +26,7 @@
             }
         </style>
     </head>
-    <body style="background-color: black;" onload="pop_up();">
+    <body style="background-color: black;">
       <section class="vh-100 gradient-custom">
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -39,7 +40,7 @@
                       <p class="text-white-50 mb-5">로그인용 이메일과 패스워드를 입력</p>
       
                       <div data-mdb-input-init class="form-outline form-white mb-4">
-                        <input type="email" id="typeEmailX" class="form-control form-control-lg" name="id" />
+                        <input type="email"  id="typeEmailX" class="form-control form-control-lg" name="id" />
                         <label class="form-label" for="typeEmailX">이메일</label>
                       </div>
       

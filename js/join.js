@@ -25,7 +25,7 @@ class SignUp {
 
     get fullName() {
         return `${this.firstName} ${this.lastName}`; // 템플릿 리터럴 문자열 연결, 기존에는 + 연산자로 연결
-      }
+    }
     
       set fullName(fullName) {
         const [firstName, lastName] = fullName.split(" ");
